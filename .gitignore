@@ -1,0 +1,4 @@
+/@shield-study-vpn-*.xpi
+node_modules/
+.sass-cache/
+data/*.css

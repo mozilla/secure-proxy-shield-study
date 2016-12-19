@@ -1,0 +1,13 @@
+*
+.*
+!/data/*.svg
+!/data/*.css
+!/data/*.js
+!/data/*.html
+!/data/*.json
+!/data/*.png
+!/lib/*.js
+!/index.js
+!/README.md
+!/package.json
+!/node_modules/shield-studies-addon-utils/**/*

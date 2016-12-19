@@ -1,0 +1,42 @@
+{
+  "title": "SHIELD Study: VPN",
+  "name": "shield-study-vpn",
+  "version": "0.0.1",
+  "description": "Offers a VPN for users when on public wifi networks",
+  "main": "index.js",
+  "author": "Benton Case <bcase@mozilla.com>",
+  "repository": "https://github.com/casebenton/shield-study-vpn",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "jetpack"
+  ],
+  "scripts": {
+    "styles": "node_modules/.bin/node-sass data/ --output data/ --sourcemap=none",
+    "build": "npm run styles && jpm xpi",
+    "lint": "eslint bin lib data"
+  },
+  "devDependencies": {
+    "common-tags": "1.3.1",
+    "eslint": "2.13.1",
+    "eslint-config-airbnb": "9.0.1",
+    "eslint-plugin-import": "1.10.2",
+    "eslint-plugin-jsx-a11y": "1.5.5",
+    "eslint-plugin-mozilla": "0.0.3",
+    "eslint-plugin-react": "5.2.2",
+    "jpm": "1.0.7",
+    "node-fetch": "1.6.3",
+    "node-sass": "3.8.0",
+    "shield-study-cli": "1.2.2",
+    "woodchipper": "0.9.1"
+  },
+  "dependencies": {
+    "shield-studies-addon-utils": "2.0.0"
+  },
+  "permissions": {
+    "multiprocess": true
+  }
+}
