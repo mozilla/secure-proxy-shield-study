@@ -15,7 +15,7 @@
     "jetpack"
   ],
   "scripts": {
-    "styles": "node_modules/.bin/node-sass data/ --output data/ --sourcemap=none",
+    "styles": "node_modules/.bin/node-sass webextension/ --output webextension/ --sourcemap=none",
     "build": "npm run styles && jpm xpi",
     "lint": "eslint bin lib data"
   },

@@ -15,6 +15,7 @@ function el(tag, attrs = {}, ...children) {
 
 class Notify {
   start() {
+    this.port = browser.runtime.connect({ name: 'connection-to-legacy' });
     this.target = document.body.appendChild(el('div'));
     const methodsToBind = ['handleSafeNetwork', 'handleUnsafeNetwork',
                            'handleMoreInfo', 'handleDisable', 'handleSignup',
@@ -22,8 +23,10 @@ class Notify {
     for (let key of methodsToBind) { // eslint-disable-line prefer-const
       this[key] = this[key].bind(this);
     }
-    self.port.on('newNetwork', () => {
-      this.render('warn');
+    this.port.onMessage.addListener((message) => {
+      if (message === 'newNetwork') {
+        this.render('warn');
+      }
     });
   }
 
@@ -134,29 +137,29 @@ class Notify {
   }
 
   handleSafeNetwork() {
-    self.port.emit('safe');
+    this.port.sendMessage('safe');
     this.render('safe');
   }
 
   handleUnsafeNetwork() {
-    self.port.emit('unsafe');
+    this.port.sendMessage('unsafe');
     this.render('unsafe');
   }
 
   handleSignup() {
-    self.port.emit('signup');
+    this.port.sendMessage('signup');
   }
 
   handleNoSignup() {
-    self.port.emit('noSignup');
+    this.port.sendMessage('noSignup');
   }
 
   handleClose() {
-    self.port.emit('close');
+    this.port.sendMessage('close');
   }
 
   handleDisable() {
-    self.port.emit('disable');
+    this.port.sendMessage('disable');
   }
 }
 

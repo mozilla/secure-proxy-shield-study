@@ -1,11 +1,11 @@
 *
 .*
-!/data/*.svg
-!/data/*.css
-!/data/*.js
-!/data/*.html
-!/data/*.json
-!/data/*.png
+!/webextension/*.svg
+!/webextension/*.css
+!/webextension/*.js
+!/webextension/*.html
+!/webextension/*.json
+!/webextension/*.png
 !/lib/*.js
 !/index.js
 !/README.md
